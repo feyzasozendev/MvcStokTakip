@@ -1,0 +1,28 @@
+﻿@model MvcStok.Models.Entity.TBLUrunler
+@{
+    ViewBag.Title = "UrunGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("Guncelle", "Urun", FormMethod.Post))
+{
+    @Html.Label("ÜRÜN İD")
+    @Html.TextBoxFor(x => x.UrunID, new { @class = "form-control" })
+    <br />
+    @Html.Label("ÜRÜN ADI")
+    @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control" })
+    <br />
+    @Html.Label("MARKASI")
+    @Html.TextBoxFor(x => x.Marka, new { @class = "form-control" })
+    <br />
+    @Html.Label("KATEGORİ")
+    @Html.DropDownListFor(m => m.TBLKAtegoriler.KategoryID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+    <br />
+    @Html.Label("FİYAT")
+    @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control" })
+    <br />
+    @Html.Label("STOK")
+    @Html.TextBoxFor(x => x.Stok, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+}
